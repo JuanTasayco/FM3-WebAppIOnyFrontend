@@ -1,0 +1,36 @@
+<div class="Sign-general container-fluid d-flex flex-column justify-content-center align-items-center h-100 pb-5">
+    <p class="Sign-p top-0 start-50 pb-5"><img src="assets/Movie.png" alt=""></p>
+
+    <section class="Sign-section p-4 rounded-4 shadow-lg">
+        <h2 class="Sign-h2 mb-4 text-light p-1">Sign Up</h2>
+
+        <form class="Sign-form row px-3" autocomplete="off" [formGroup]="signFormulario" >
+
+                <div class="Sign-group-input form-floating my-3 col-12"> <!-- si hay error  border-bottom border-danger -->
+                    <input type="email" class="Sign-input form-control form-control-lg border-0 text-white" id="floatingInputEmail" formControlName="email">
+                    <label for="floatingInputEmail" class="Sign-label">Email address</label>
+                 <!--   <label for="floatingInput" class="Sign-label--error text-danger">Can't be empty</label> -->
+                  </div>
+          
+                  <div class="Sign-group-input form-floating my-4 col-12 ">
+                    <input type="password" class="Sign-input form-control form-control-lg border-0 " id="floatingInputPassword" formControlName="password">
+                    <label for="floatingInputPassword" class="Sign-label ">Password</label>
+                       <!--   <label for="floatingInput" class="Sign-label--error text-danger">Can't be empty</label> -->
+                  </div>
+
+                  <div class="Sign-group-input form-floating col-12 "> 
+                    <input type="password" class="Sign-input form-control form-control-lg border-0 " id="floatingInputRepeat">
+                    <label for="floatingInputRepeat" class="Sign-label ">Repeat Password</label>
+                       <!--  <label for="floatingInput" class="Sign-label--error text-danger">Can't be empty</label> --> 
+                  </div> 
+
+            <div class="Sign-group-button col-12 pt-3">
+                <button class="Sign-button btn btn-danger w-100 border-0"> Sign to your account</button>
+            </div>
+
+            <small class="Sign-small text-light text-center pt-4">Login have an account? <a routerLink="/auth/login" class="text-danger text-decoration-none">Sign</a> </small>
+        </form>
+
+    </section>
+
+</div>

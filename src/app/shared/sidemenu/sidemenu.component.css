@@ -1,0 +1,22 @@
+.Container-nav{
+    background:var(--blueNormal)
+}
+
+.Container-user-img img{
+    max-height:3rem;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+
+@media only screen and (min-width: 992px) {
+
+    .Container-nav{
+      
+        max-height:50%;
+
+    }
+
+}

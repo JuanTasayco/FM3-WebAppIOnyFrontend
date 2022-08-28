@@ -1,0 +1,47 @@
+.Sign-general{
+    font-family: var(--outfitLight);
+    background: var(--blueHard)
+}
+
+.Sign-section{
+ background:var(--blueNormal)
+}
+
+.Sign-form{
+    max-width:26.5rem;
+
+}
+
+.Sign-group-input{
+border-bottom: 2px solid var(--lightblue);
+}
+
+.Sign-input{
+    background: var(--blueNormal);
+}
+
+
+.Sign-input:focus{
+    color:white;
+    box-shadow: none;
+}
+
+.Sign-label{
+    color:var(--white);
+}
+
+.Sign-label--error{
+    display:flex;
+    flex-direction: row-reverse;
+    margin:0 7%;
+}
+
+.Sign-button{
+    padding:0.9rem 0;
+}
+
+.Sign-button:hover{
+    background: var(--white);
+    border:none;
+    color:black;
+}

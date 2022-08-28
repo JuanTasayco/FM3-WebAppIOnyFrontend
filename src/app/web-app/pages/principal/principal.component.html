@@ -1,0 +1,31 @@
+<h2 class="Results-h2 text-white p-4">{{"TRENDING" | titlecase}}</h2>
+<div class="Results-trending-row row row-cols-2 row-cols-md-3  px-lg-4 text-white">
+   <div class="Results-trending-col col">
+        <div class="Results-trending-card card bg-dark text-white m-auto">
+            <img src="assets/thumbnails/112/regular/large.jpg" class="Results-trending-img card-img" alt="m">
+
+            <div class="Results-trending-text-overlay card-img-overlay overflow-hidden d-flex align-items-end"> 
+                <div class="Results-trending-svg position-absolute top-0 end-0 m-3 rounded-circle px-1" >
+                    <svg width="20" height="20" style="border:4px solid transparent" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z" stroke="#FFF"
+                            stroke-width="1.5" fill="none" />
+                    </svg>
+                </div>
+
+                <figcaption class="Results-trending-caption">
+                    <ul
+                        class="Results-trending-ul d-flex justify-content-start align-items-center gap-4 px-1 pt-2 my-0">
+                        <li>2019</li>
+                        <li>Movie</li>
+                        <li>PG</li>
+                    </ul>
+                    <h2 class="Results-trending-h2 my-1 fw-bold">The Great Lands</h2>
+                </figcaption>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<h2 class="Results-h2 text-white p-4">{{"recomended for you" | titlecase}}</h2>
+<app-results [moviesComponent]="moviesRecommended"></app-results>

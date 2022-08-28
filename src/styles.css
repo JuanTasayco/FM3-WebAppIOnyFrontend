@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --outfitLight: 'Outfit', sans-serif;
+    --red: rgba(252, 71, 71);
+    --blueHard: rgba(16, 20, 30);
+    --lightblue: rgba(90, 105, 143);
+    --blueNormal: rgba(22, 29, 47);
+    --white: rgba(255, 255, 255);
+
+    --textL: 32px;
+    --textM: 24px;
+    --textS: 24px;
+    --textXS: 18px;
+    --textBodyM: 15px;
+    --textBodyS: 13px;
+}
+
+html, body{
+    background:var(--blueHard)
+}

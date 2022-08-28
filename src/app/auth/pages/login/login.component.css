@@ -1,0 +1,46 @@
+.Login-general{
+    font-family: var(--outfitLight);
+    background: var(--blueHard)
+}
+
+.Login-section{
+ background:var(--blueNormal)
+}
+
+.Login-form{
+    max-width:26.5rem
+}
+
+.Login-group-input{
+border-bottom: 2px solid var(--lightblue);
+}
+
+.Login-input{
+    background: var(--blueNormal);
+}
+
+
+.Login-input:focus{
+    color:white;
+    box-shadow: none;
+}
+
+.Login-label{
+    color:var(--white);
+}
+
+.Login-label--error{
+    display:flex;
+    flex-direction: row-reverse;
+    margin:0 7%;
+}
+
+.Login-button{
+    padding:0.9rem 0;
+}
+
+.Login-button:hover{
+    background: var(--white);
+    border:none;
+    color:black;
+}

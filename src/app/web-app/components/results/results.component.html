@@ -1,0 +1,33 @@
+<div class="Results-row row row-cols-2 row-cols-md-3 row-cols-xl-4 px-lg-4 text-white">
+  <div class="Results-col col py-3" *ngFor="let movie of movies">
+        <div class="Results-card card bg-dark text-white m-auto position-relative">
+            <img [src]="movie.thumbnail.regular.medium" class="Results-img card-img" alt="m">
+            <div class="Results-text-overlay card-img-overlay overflow-hidden">
+                <div class="Results-svg position-absolute top-0 end-0 m-3 rounded-circle px-1">
+                    <svg width="20" height="20" style= "border:4px solid transparent" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z" stroke="#FFF"
+                            stroke-width="1.5" fill="none" />
+                    </svg>
+                </div>
+            </div>
+
+            <figcaption class="Results-caption figure-caption">
+                <ul class="Results-ul d-flex justify-content-start align-items-center gap-4 px-1 pt-2 my-0">
+                    <li>{{movie.year}}</li>
+                    <li>{{movie.category}}</li>
+                    <li>{{movie.rating}}</li>
+                </ul>
+                <h2 class="Results-h2 my-1 text-light">{{movie.title}}</h2>
+            </figcaption>
+
+        </div>
+    </div> 
+
+
+
+    
+
+    
+
+
+</div>

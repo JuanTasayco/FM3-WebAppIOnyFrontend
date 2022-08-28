@@ -1,0 +1,19 @@
+.Container-general2{
+    font-family: var(--outfitLight);
+    background: var(--blueHard)
+}
+
+
+@media only screen and (min-width: 992px) {
+
+    .Container-header{
+       max-width: 8rem;
+       height: 100%;
+    }
+
+    .Container-general2 .Container-row{
+        height:100%
+    }
+
+}
+

@@ -1,0 +1,17 @@
+<div class="Container-general2 container-fluid h-100">
+    <div class="Container-row row d-flex flex-column flex-lg-row">
+        
+        <header class="Container-header col-lg-1 " >
+            <app-sidemenu></app-sidemenu> <!-- shared - sidemenu -->
+        </header>
+
+        <main class="Container-main col-lg-11 py-lg-4">
+            <app-search></app-search>      <!--component - search -->
+            <div class="Router-Outlet-Web-App" >
+                <router-outlet></router-outlet> <!-- pages web-app-->
+            </div>      
+        </main>
+    </div>
+</div>
+
+

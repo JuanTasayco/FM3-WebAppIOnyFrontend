@@ -1,0 +1,15 @@
+
+
+.Container2-input{
+    background: var(--blueHard);
+    caret-color: var(--red);
+
+}
+
+.Container2-input:focus{
+    border-top: var(--lightblue);
+    border:2px solid green;
+    box-shadow:none;
+    color:white
+}
+

@@ -1,0 +1,32 @@
+<div class="Login-general container-fluid d-flex flex-column justify-content-center align-items-center h-100 pb-5">
+    <p class="Login-p top-0 start-50 pb-5"><img src="assets/Movie.png" alt=""></p>
+
+    <section class="Login-section p-4 rounded-4 shadow-lg">
+        <h2 class="Login-h2 mb-4 text-light p-1">Login</h2>
+
+        <form class="Login-form row px-3" autocomplete="off" [formGroup]="loginFormulario">
+
+                <div class="Login-group-input form-floating my-3 col-12"> <!-- si hay error  border-bottom border-danger -->
+                    <input type="email" class="Login-input form-control form-control-lg border-0 text-white" id="floatingInputEmail1" formControlName="email">
+                    <label for="floatingInputEmail1" class="Login-label ">Email address</label>
+                 <!--   <label for="floatingInput" class="Login-label--error text-danger">Can't be empty</label> -->
+                  </div>
+          
+                  <div class="Login-group-input form-floating my-4 col-12 ">
+                    <input type="password" class="Login-input form-control form-control-lg border-0 " id="floatingInputPassword1" formControlName="password">
+                    <label for="floatingInputPassword1" class="Login-label ">Password</label>
+                       <!--   <label for="floatingInput" class="Login-label--error text-danger">Can't be empty</label> -->
+                  </div>
+
+           
+
+            <div class="Login-group-button col-12 pt-3">
+                <button type="submit" class="Login-button btn btn-danger w-100 border-0" routerLink="/web-app/home"> Login to your account</button>
+            </div>
+
+            <small class="Login-small text-light text-center pt-4">Don't hace an account? <a  routerLink="/auth/sign-up" class="text-danger text-decoration-none">Sign Up</a> </small>
+        </form>
+
+    </section>
+
+</div>
