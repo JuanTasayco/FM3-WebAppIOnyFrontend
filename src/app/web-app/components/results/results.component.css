@@ -9,6 +9,15 @@
     background: var(--blueHard);
 }
 
+.Results-svg{
+    background:black;
+    opacity: 0.5;
+}
+
+.Results-svg:hover{
+    cursor: pointer;
+}
+
 .Results-ul{
     font-size: var(--textBodyM);
 

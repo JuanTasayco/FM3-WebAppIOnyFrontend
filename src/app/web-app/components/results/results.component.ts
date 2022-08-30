@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { tap } from 'rxjs';
 import { Movies } from '../../interface/info.interface';
+import { WebAppService } from '../../services/web-app.service';
 
 @Component({
   selector: 'app-results',
@@ -10,11 +12,22 @@ export class ResultsComponent implements OnInit {
 
   @Input("moviesComponent") movies: Movies[] = [];
 
-  constructor() { }
+
 
   ngOnInit(): void {
   }
 
 
+  mostrar(movie: Movies) {
 
+    movie.isBookmarked = !movie.isBookmarked
+   
+    this.webService.updateBookmarlByMovie(movie)
+      .subscribe(movie => {
+      })
+
+  }
+
+
+  constructor(private webService: WebAppService) { }
 }

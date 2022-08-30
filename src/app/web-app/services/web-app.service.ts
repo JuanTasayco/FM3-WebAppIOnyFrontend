@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { Movies } from '../interface/info.interface';
 
 @Injectable({
@@ -51,6 +51,10 @@ export class WebAppService {
         map(movies => movies.filter(movie => !movie.isTrending))
       );
   }
+
+  updateBookmarlByMovie(movie: Movies): Observable<Movies> {
+    return this.webService.put<Movies>(`${this.baseUrl}/movies/${movie.title}`, movie)
+  } 
 
   constructor(private webService: HttpClient) { }
 }
