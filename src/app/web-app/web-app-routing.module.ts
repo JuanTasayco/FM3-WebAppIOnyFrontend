@@ -29,7 +29,7 @@ const routes: Routes = [
         component: BookmarkedMoviesComponent
 
       },
-
+      
       {
         path:"**",
         redirectTo:"principal"

@@ -1,5 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/services/auth.service';
+
+export enum Routes {
+  PRINCIPAL_PAGE = "principal",
+  MOVIES_PAGE = "movies",
+  TV_SERIES_PAGE = "tvSeries",
+  BOOKMARKED = "bookmarked"
+}
+
+const BASE_ROUTE_URL = "/web-app/"
 
 @Component({
   selector: 'app-sidemenu',
@@ -8,22 +18,28 @@ import { Router } from '@angular/router';
 })
 export class SidemenuComponent implements OnInit {
 
-  constructor(private router : Router) { }
+  fillActive: boolean = false;
 
   ngOnInit(): void {
   }
 
+  goToSpecificRoute(route: string) {
+    return `${BASE_ROUTE_URL}${route}`
+  }
 
-  toPrincipalPage(){
-    this.router.navigate(['/web-app/principal'])
+  get routes(): typeof Routes {
+    return Routes;
   }
-  toMoviesPage(){
-    this.router.navigate(['/web-app/movies'])
+
+  get usuario() {
+    return this.authService.usuario;
   }
-  toTvSeriesPage(){
-    this.router.navigate(['/web-app/tvSeries'])
+
+  logout(){
+    localStorage.removeItem("key");
+    this.router.navigateByUrl("/auth/login")
   }
-  toBookmarkedMoviesPage(){
-    this.router.navigate(['/web-app/bookmarked'])
-  }
+
+  constructor(private authService: AuthService,
+    private router : Router) { }
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ValidAuthGuard } from './auth/guards/valid-auth.guard';
 
 const routes: Routes = [
   {
@@ -8,7 +9,9 @@ const routes: Routes = [
   },
   {
     path: "web-app",
-    loadChildren: () => import("./web-app/web-app.module").then(m => m.WebAppModule)
+    loadChildren: () => import("./web-app/web-app.module").then(m => m.WebAppModule),
+    canActivate: [ValidAuthGuard],
+    canLoad: [ValidAuthGuard]
   },
 
   {

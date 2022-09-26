@@ -5,18 +5,47 @@
 .Container-user-img img{
     max-height:3rem;
 }
+.Container__img:hover{
+    cursor:pointer;
+}
 
 a:hover{
     cursor: pointer;
 }
 
+.menu-svg {
+    margin: auto;
+    transform: scale(1.5);
+    padding: 0 4px;
+} 
+
+.Nav-svg{
+    max-width: 2rem;
+}
+
+.LogoMovie__block:hover{
+    cursor:pointer;
+}
+
+.active{
+   filter:  blur(0) brightness(300%) contrast(108%) saturate(0%);
+}
+
 
 @media only screen and (min-width: 992px) {
-
     .Container-nav{
-      
         max-height:50%;
-
     }
-
+ 
 }
+
+@media only screen and (max-width: 991px) {
+    .menu-svg {
+        margin: auto;
+        transform: scale(1.5);
+      
+    } 
+    
+ 
+}
+

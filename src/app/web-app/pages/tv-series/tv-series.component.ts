@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Movies } from '../../interface/info.interface';
+import { WebAppLocalService } from '../../services/web-app-local.service';
 import { WebAppService } from '../../services/web-app.service';
 
 @Component({
@@ -8,18 +9,27 @@ import { WebAppService } from '../../services/web-app.service';
   styleUrls: ['./tv-series.component.css']
 })
 export class TvSeriesComponent implements OnInit {
-  
-  movies : Movies [] = [];
- 
+
+  movies: Movies[] = [];
+
 
   ngOnInit(): void {
-    this.webService.getTvSeries()
-      .subscribe(movies=> {
+
+    this.webServiceLocal.getTvSeries()
+      .subscribe(movies => {
         this.movies = movies;
       })
-    
+
+
+    //JsonServer
+    /*    this.webService.getTvSeries()
+         .subscribe(movies=> {
+           this.movies = movies;
+         }) */
+
 
   }
 
-  constructor(private webService: WebAppService) { }
+  constructor(private webService: WebAppService,
+    private webServiceLocal: WebAppLocalService) { }
 }

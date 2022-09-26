@@ -3,6 +3,12 @@
     background: var(--blueHard)
 }
 
+.Container-alert{
+    background: var(--lightblue);
+    color:white;
+}
+
+
 
 @media only screen and (min-width: 992px) {
 

@@ -1,11 +1,13 @@
 export interface Movies {
-    title:        string;
-    thumbnail:    Thumbnail;
-    year:         number;
-    category:     Category;
-    rating:       Rating;
+    title: string;
+    id?: string;
+    thumbnail: Thumbnail;
+    year: number;
+    category: Category;
+    rating: Rating;
     isBookmarked: boolean;
-    isTrending:   boolean;
+    isTrending: boolean;
+
 }
 
 export enum Category {
@@ -21,16 +23,21 @@ export enum Rating {
 
 export interface Thumbnail {
     trending?: Trending;
-    regular:   Regular;
+    regular: Regular;
 }
 
 export interface Regular {
-    small:  string;
+    small: string;
     medium: string;
-    large:  string;
+    large: string;
 }
 
 export interface Trending {
     small: string;
     large: string;
+}
+
+
+export interface DTJson {
+    movies: any[];
 }

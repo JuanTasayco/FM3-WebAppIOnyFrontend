@@ -8,7 +8,7 @@ import { Movies } from '../interface/info.interface';
 })
 export class WebAppService {
 
-  baseUrl: string = "http://localhost:3000"
+  baseUrl: string = "http://localhost:3000" //con JsonServer
 
   getMovies(): Observable<Movies[]> {
     return this.webService.get<Movies[]>(`${this.baseUrl}/movies`)
@@ -52,9 +52,13 @@ export class WebAppService {
       );
   }
 
+  getMovieByTitle(movie: string): Observable<Movies[]> {
+    return this.webService.get<Movies[]>(`${this.baseUrl}/movies/${movie}`)
+  }
+
   updateBookmarlByMovie(movie: Movies): Observable<Movies> {
     return this.webService.put<Movies>(`${this.baseUrl}/movies/${movie.title}`, movie)
-  } 
+  }
 
   constructor(private webService: HttpClient) { }
 }

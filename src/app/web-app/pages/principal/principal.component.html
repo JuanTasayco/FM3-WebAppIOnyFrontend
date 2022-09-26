@@ -1,7 +1,61 @@
-<h2 class="Results-h2 text-white p-4">{{"TRENDING" | titlecase}}</h2>
-<div class="Results-trending-row row row-cols-2 row-cols-md-3  px-lg-4 text-white">
+<div class="Carrousel-row">
+    <h2 class="Principal-h2 Results-h2 text-white p-4 align-self-start">{{"TRENDING" | titlecase}}</h2>
+    <div class="Carrousel-row-p row ps-lg-4 text-white">
+        <p-carousel class="" [value]="moviesTrendings" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1"
+            [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions" [showNavigators]="false"
+            [showIndicators]="false">
+            <ng-template pTemplate="header">
+            </ng-template>
+            <ng-template let-movie pTemplate="item">
+                <div class="product-item" class="position-relative pe-4">
+                    <!-- texto overlay -->
+                    <div class="Carrousel__block product-item-content rounded-3" (mouseover)="aparecerImg(play)"
+                    (mouseout)="desparecerImg(play)">
+                        <img [src]="movie.thumbnail.regular.large" alt="" class="product-img rounded-3">
 
-   <div class="Results-trending-col" style="border:2px solid red"> 
+                        <div #play class="position-absolute Carrousel__img--hover">
+                            <div class="Results__block__play d-flex gap-3 rounded-pill">
+                                <img src="assets/icon-play.svg" alt="" class="Results__img">
+                                <h5 class="my-auto Results__h5 fw-bold">Play</h5>
+                            </div>
+                        </div>
+                        <div class="position-relative">
+                            <div class="p-2 d-flex gap-3 text-white position-absolute bottom-0 my-5 mx-3 fs-5">
+                                <ul
+                                    class="Carrousel-ul d-flex justify-content-start align-items-center gap-4 px-3 pt-2 my-0">
+                                    <li>{{movie.year}}</li>
+                                    <li class="d-flex justify-content-center align-items-center">
+                                        <img src="assets/icon-category-movie.svg" alt="" class="Carrousel-svg mx-1">
+                                        {{movie.category}}
+                                    </li>
+                                    <li>{{movie.rating}}</li>
+                                </ul>
+                            </div>
+                            <h4 class="position-absolute bottom-0 m-4">{{movie.title}}</h4>
+                            <h6 class="p-mt-0 p-mb-3 position-absolute">${{movie.category}}</h6>
+                        </div>
+
+                    </div>
+                    <!-- fin texto-overlay -->
+                </div>
+
+            </ng-template>
+        </p-carousel>
+    </div>
+    <h2 class="Principal-h2 text-white p-4 align-self-start">{{"recomended for you" | titlecase}}</h2>
+</div>
+
+<app-results [moviesComponent]="moviesRecommended"></app-results>
+
+
+
+
+
+
+
+
+
+<!--  <div class="Results-trending-col" style="border:2px solid red"> 
         <div class="Results-trending-card card bg-dark text-white m-auto">
             <img src="assets/thumbnails/112/regular/large.jpg" class="Results-trending-img card-img" alt="m">
 
@@ -24,12 +78,4 @@
                 </figcaption>
             </div>
         </div>
-    </div>
-
- 
-
-
-</div>
-
-<h2 class="Results-h2 text-white p-4">{{"recomended for you" | titlecase}}</h2>
-<app-results [moviesComponent]="moviesRecommended"></app-results>
+    </div> -->

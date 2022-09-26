@@ -1,17 +1,29 @@
 <div class="Container-general2 container-fluid h-100">
+
     <div class="Container-row row d-flex flex-column flex-lg-row">
-        
-        <header class="Container-header col-lg-1 " >
+
+        <header class="Container-header col-lg-1">
             <app-sidemenu></app-sidemenu> <!-- shared - sidemenu -->
+            <div class="d-flex justify-content-center">
+
+            </div>
         </header>
 
         <main class="Container-main col-lg-11 py-lg-4">
-            <app-search></app-search>      <!--component - search -->
-            <div class="Router-Outlet-Web-App" >
+
+            <div>
+                <app-search (sendMovie)="getSendMovie($event)"></app-search>
+                <app-results [moviesComponent]="selectedMovies">
+                </app-results>
+                <!--component - search -->
+                <div class="Container-alert alert" role="alert" *ngIf="movieNoExist && selectedMovies.length===0">
+                    No se pudo encontrar la pelicula
+                </div>
+            </div>
+            <div class="Router-Outlet-Web-App container-fluid overflow-hidden" *ngIf="!searchActive">
                 <router-outlet></router-outlet> <!-- pages web-app-->
-            </div>      
+            </div>
         </main>
     </div>
+
 </div>
-
-
