@@ -53,6 +53,7 @@ export class SignUpComponent implements OnInit {
     if (this.signFormulario.invalid) {
       this.signFormulario.markAllAsTouched();
     } else {
+
       this.authService.registrarUsuario(email, password)
         .subscribe(resp => {
           if (resp === true) {
@@ -61,9 +62,11 @@ export class SignUpComponent implements OnInit {
               'Registrado Correctamente!',
               'success'
             )
+            console.log("true")
             this.route.navigate(["/auth/login"])
 
           } else {
+            console.log("false")
             Swal.fire({
               icon: 'error',
               title: 'Oops...',

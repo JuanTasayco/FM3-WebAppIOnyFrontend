@@ -36,7 +36,7 @@ export class AuthService {
         tap(),
         map(resp => {
           localStorage.setItem("key", resp.token!);
-          resp.ok
+          return resp.ok
         }),
         catchError(err => of(err.error.msg))
       )

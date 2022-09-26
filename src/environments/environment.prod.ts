@@ -11,5 +11,5 @@ export const environment = {
     measurementId: 'G-ERKF7RFL83',
   },
   production: true,
-  baseUrl : "http://localhost:4000/api/auth"
+  baseUrl : "https://fm2-appweb.herokuapp.com/api/auth"
 };

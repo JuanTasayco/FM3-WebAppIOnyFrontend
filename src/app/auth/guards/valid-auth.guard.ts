@@ -9,10 +9,12 @@ import { AuthService } from '../services/auth.service';
 export class ValidAuthGuard implements CanActivate, CanLoad {
   canActivate(): Observable<boolean> | boolean {
     return this.authService.revalidarToken();
+
   }
 
   canLoad(): Observable<boolean> | boolean {
     return this.authService.revalidarToken();
+
   }
 
 

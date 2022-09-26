@@ -8,8 +8,6 @@ export class ValidatorService {
 
   emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
 
- 
-
 
   contraseñasIguales(password: string, passwordRepeat: string) {
     return (grupoFormulario: AbstractControl) => {
