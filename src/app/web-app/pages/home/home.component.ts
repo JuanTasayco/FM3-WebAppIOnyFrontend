@@ -1,26 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Movies } from '../../interface/info.interface';
-import { WebAppLocalService } from '../../services/web-app-local.service';
+
 import { WebAppService } from '../../services/web-app.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
-  AllMovies: any[] = [];
+  AllMovies: Movies[] = [];
   selectedMovies: any[] = [];
   movieNoExist: boolean = false;
   searchActive: boolean = false;
-  
-  ngOnInit(): void {
-    this.webLocalService.getAllMovies()
-      .subscribe(results => {
-        this.AllMovies = results;
-      })
 
+  ngOnInit(): void {
+    this.webService.getMovies().subscribe((movies) => {
+      this.AllMovies = movies;
+    });
   }
 
   getSendMovie(movie: string) {
@@ -39,10 +36,8 @@ export class HomeComponent implements OnInit {
         }
       }
       this.movieNoExist = true;
-    })
-
+    });
   }
 
-  constructor(private webService: WebAppService,
-    private webLocalService: WebAppLocalService) { }
+  constructor(private webService: WebAppService) {}
 }

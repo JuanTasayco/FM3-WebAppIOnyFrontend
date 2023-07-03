@@ -1,5 +1,4 @@
-<nav
-    class=" py-2 Container-nav h-100 d-flex flex-wrap justify-content-between flex-lg-column align-items-lg-center justify-content-lg-between rounded-3 pt-lg-3 px-3 px-lg-0 mt-3">
+<nav class=" py-2 Container-nav h-100 d-flex flex-wrap justify-content-between flex-lg-column align-items-lg-center justify-content-lg-between rounded-3 pt-lg-3 px-3 px-lg-0 mt-3">
     <div class="LogoMovie__block d-none d-lg-block position-absolute text-white mt-2"
         [routerLink]="goToSpecificRoute(routes.PRINCIPAL_PAGE)"><img src="assets/Movie.png" alt="movie"></div>
     <div class="d-block d-lg-none  text-white mt-2"><img src="assets/Movie.png" alt=""></div>
@@ -18,7 +17,9 @@
             <img [class.active]="svg4.isActive" src="assets/icon-nav-bookmark.svg" alt="" class="Nav-svg"></a>
     </div>
     <div class="d-flex align-items-center">
-        <h5 class="text-light my-auto"> {{usuario.email.slice(0,6) | titlecase}}</h5>
+        <h5 class="text-light my-auto"> {{usuario.email | titlecase}} </h5>
+    <!--     <h5 class="text-light my-auto"> {{usuario.email.slice(0,6) | titlecase}}</h5> -->
+
     </div>
     <div class="Container__img Container-user-img mb-lg-5" (click)="logout()">
         <img src="assets/image-avatar.png" alt="" class="">

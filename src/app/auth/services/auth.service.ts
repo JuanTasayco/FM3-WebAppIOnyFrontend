@@ -1,66 +1,58 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of, tap } from 'rxjs';
-import { environment } from '../../../environments/environment'
-import { AuthResponse, User } from '../interface/auth.interfaces';
-
+import { environment } from '../../../environments/environment';
+import { UserClass, User } from '../interface/auth.interfaces';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
   private baseUrl: string = environment.baseUrl;
-  private _usuario!: User;
+  private _usuario!: UserClass;
 
   get usuario() {
     return { ...this._usuario };
   }
 
+  registrarUsuario(email: string, password: string) {
+    return this.http
+      .post<User>(`${this.baseUrl}/auth/create`, { email, password })
+      .pipe(
+        tap(),
+        map((resp) => {
+          localStorage.setItem('key', resp.token!);
+          return true;
+        }),
+        catchError((err) => of(err.error.message))
+      );
+  }
 
   login(email: string, password: string) {
-    return this.http.post<AuthResponse>(`${this.baseUrl}/`, { email, password })
+    return this.http
+      .post<User>(`${this.baseUrl}/auth/login`, { email, password })
       .pipe(
         tap(),
-        map(resp => {
-          localStorage.setItem("key", resp.token!);
-          return resp.ok
+        map((resp) => {
+          localStorage.setItem('key', resp.token!);
+          return true;
         }),
-        catchError(err => of(err.error.msg))
-      )
+        catchError((err) => of(err.error.message))
+      );
   }
-
-  registrarUsuario(email: string, password: string) {
-    return this.http.post<AuthResponse>(`${this.baseUrl}/new`, { email, password })
-      .pipe(
-        tap(),
-        map(resp => {
-          localStorage.setItem("key", resp.token!);
-          return resp.ok
-        }),
-        catchError(err => of(err.error.msg))
-      )
-  }
-
 
   revalidarToken(): Observable<boolean> {
-    const headers = new HttpHeaders()
-      .set("x-token", localStorage.getItem("key") || "");
-    return this.http.get<AuthResponse>(`${this.baseUrl}`, { headers })
+    const token = localStorage.getItem('key');
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + token,
+    });
+    return this.http
+      .get<UserClass>(`${this.baseUrl}/auth/validate`, { headers })
       .pipe(
-        map(resp => {
-          localStorage.setItem("key", resp.token!);
-          this._usuario = {
-            email: resp.email!,
-            password: resp.uid!
-          }
-          return resp.ok;
-        }),
-        catchError(erro => of(false))
-      )
+        map((response) => true),
+        catchError((error) => of(false))
+      );
   }
 
-
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 }

@@ -61,12 +61,11 @@ export class SignUpComponent implements OnInit {
               'Completado!',
               'Registrado Correctamente!',
               'success'
-            )
-            console.log("true")
-            this.route.navigate(["/auth/login"])
+            ).then(() => {
+              this.route.navigate(["/auth/login"])
+            })
 
           } else {
-            console.log("false")
             Swal.fire({
               icon: 'error',
               title: 'Oops...',

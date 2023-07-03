@@ -13,8 +13,7 @@
 
             <div>
                 <app-search (sendMovie)="getSendMovie($event)"></app-search>
-                <app-results [moviesComponent]="selectedMovies">
-                </app-results>
+                <app-results [moviesComponent]="selectedMovies"></app-results>
                 <!--component - search -->
                 <div class="Container-alert alert" role="alert" *ngIf="movieNoExist && selectedMovies.length===0">
                     No se pudo encontrar la pelicula

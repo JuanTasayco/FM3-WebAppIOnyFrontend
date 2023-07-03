@@ -1,12 +1,11 @@
-export interface AuthResponse {
-    ok: boolean,
-    msg: string,
-    uid?: string,
-    email?: string,
-    token?: string,
+export interface User {
+    user:  UserClass;
+    token: string;
 }
 
-export interface User {
-    email: string,
-    password: string
+export interface UserClass {    
+    _id:      string;
+    email:    string;
+    password: string;
+    __v:      number;
 }

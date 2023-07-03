@@ -53,6 +53,7 @@ export class LoginComponent {
     if (this.loginFormulario.invalid) {
       this.loginFormulario.markAllAsTouched();
     } else {
+      console.log('formulario resultado', this.loginFormulario.value)
       const { email, password } = this.loginFormulario.value;
       this.authService.login(email, password)
         .subscribe(resp => {
@@ -67,7 +68,6 @@ export class LoginComponent {
           }
         })
     }
-
 
   }
 

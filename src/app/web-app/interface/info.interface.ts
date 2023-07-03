@@ -1,6 +1,6 @@
 export interface Movies {
     title: string;
-    id?: string;
+    _id?: string;
     thumbnail: Thumbnail;
     year: number;
     category: Category;
