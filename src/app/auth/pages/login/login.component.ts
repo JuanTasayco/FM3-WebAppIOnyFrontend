@@ -17,7 +17,7 @@ import { ValidatorService } from '../../validator/validator.service';
 export class LoginComponent {
 
   loginFormulario: FormGroup = this.fb.group({
-    email: ["test10@test.com", [Validators.required, Validators.pattern(this.validatorService.emailPattern)],],
+    email: ["juantasayco266@gmail.com", [Validators.required, Validators.pattern(this.validatorService.emailPattern)],],
     password: ["123456", [Validators.required, Validators.minLength(6)]]
   })
 
