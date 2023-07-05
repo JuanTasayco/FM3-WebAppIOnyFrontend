@@ -67,8 +67,8 @@ export class WebAppService {
   }
 
   updateBookmarlByMovie(id: string): Observable<Movies> {
-    return this.webService.put<Movies>(
-      `${this.baseUrl}/movies/bookmarked/${id}`,
+    return this.webService.patch<Movies>(
+      `${this.baseUrl}/movies/favorite/${id}`,
       {}
     );
   }

@@ -1,4 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  Input,
+  NgZone,
+  OnInit,
+  Renderer2,
+} from '@angular/core';
 import { Movies } from '../../interface/info.interface';
 import { WebAppService } from '../../services/web-app.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,17 +19,15 @@ import { elementAt } from 'rxjs';
 })
 export class ResultsComponent implements OnInit {
   active: boolean = false;
-
   @Input('moviesComponent') movies: Movies[] = [];
   allMovies: Movies[] = [];
 
   ngOnInit(): void {}
 
   putBookmark(movie: Movies) {
-    console.log('movie',movie._id);
-    this.webService
-      .updateBookmarlByMovie(movie._id ?? '')
-      .subscribe((resp) => {});
+    this.webService.updateBookmarlByMovie(movie._id ?? '').subscribe((resp) => {
+      this.cdr.detectChanges();
+    });
   }
 
   aparecerImg(element: HTMLElement) {
@@ -34,6 +40,9 @@ export class ResultsComponent implements OnInit {
 
   constructor(
     private webService: WebAppService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private ngZone: NgZone,
+    private renderer2: Renderer2,
+    private cdr: ChangeDetectorRef
   ) {}
 }

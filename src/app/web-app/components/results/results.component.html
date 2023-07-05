@@ -1,6 +1,7 @@
 <div class="Results-row row row-cols-2 row-cols-md-3 row-cols-xl-4 px-lg-4 text-white  m-auto">
     <div class="Results-col col py-3" *ngFor="let movie of movies">
         <div class="Results-card card bg-dark text-white m-auto position-relative">
+            
             <div class="Results__block position-relative" (mouseover)="aparecerImg(play)"
                 (mouseout)="desparecerImg(play)">
                 <img [src]="movie.thumbnail.regular.medium" class="Results__img card-img " alt="m">
@@ -13,6 +14,7 @@
                 </div>
 
             </div>
+
             <div class="Results-text-overlay ">
                 <div class="Results-svg position-absolute top-0 end-0 m-3 rounded-circle px-1"
                     (click)="putBookmark(movie)">

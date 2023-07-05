@@ -1,3 +1,0 @@
-{
-  "/movies/:title" : "/movies?title=:title"
-}
