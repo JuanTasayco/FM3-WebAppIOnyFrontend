@@ -1,4 +1,6 @@
 import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ElementRef,
@@ -6,28 +8,36 @@ import {
   NgZone,
   OnInit,
   Renderer2,
+  ViewChild,
 } from '@angular/core';
 import { Movies } from '../../interface/info.interface';
 import { WebAppService } from '../../services/web-app.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { elementAt } from 'rxjs';
+import { combineLatest, elementAt, firstValueFrom, lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ResultsComponent implements OnInit {
   active: boolean = false;
   @Input('moviesComponent') movies: Movies[] = [];
+  @ViewChild('svgIconBlockMovie') svgIconMovie!: ElementRef;
   allMovies: Movies[] = [];
 
   ngOnInit(): void {}
 
-  putBookmark(movie: Movies) {
-    this.webService.updateBookmarlByMovie(movie._id ?? '').subscribe((resp) => {
+  async clickPutBookmark(movie: Movies) {
+    let resultado = await lastValueFrom(
+      this.webService.updateBookmarlByMovie(movie._id || '')
+    );
+
+    if (resultado.isBookmarked) {
+      console.log("hola")
       this.cdr.detectChanges();
-    });
+    }
   }
 
   aparecerImg(element: HTMLElement) {
@@ -40,8 +50,6 @@ export class ResultsComponent implements OnInit {
 
   constructor(
     private webService: WebAppService,
-    private route: ActivatedRoute,
-    private ngZone: NgZone,
     private renderer2: Renderer2,
     private cdr: ChangeDetectorRef
   ) {}

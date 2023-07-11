@@ -1,43 +1,59 @@
-<div class="Results-row row row-cols-2 row-cols-md-3 row-cols-xl-4 px-lg-4 text-white  m-auto">
-    <div class="Results-col col py-3" *ngFor="let movie of movies">
-        <div class="Results-card card bg-dark text-white m-auto position-relative">
-            
-            <div class="Results__block position-relative" (mouseover)="aparecerImg(play)"
-                (mouseout)="desparecerImg(play)">
-                <img [src]="movie.thumbnail.regular.medium" class="Results__img card-img " alt="m">
+<div
+  class="Results-row row row-cols-2 row-cols-md-3 row-cols-xl-4 px-lg-4 text-white m-auto"
+>
+  <div class="Results-col col py-3" *ngFor="let movie of movies">
+    <div class="Results-card card bg-dark text-white m-auto position-relative">
+      <div
+        class="Results__block position-relative"
+        (mouseover)="aparecerImg(play)"
+        (mouseout)="desparecerImg(play)"
+      >
+        <img
+          [src]="movie.thumbnail.regular.medium"
+          class="Results__img card-img"
+          alt="m"
+        />
 
-                <div #play class="position-absolute Results__img--hover">
-                    <div class="Results__block__play d-flex gap-3 rounded-pill">
-                        <img src="assets/icon-play.svg" alt="" class="Results__img">
-                        <h5 class="my-auto Results__h5 fw-bold">Play</h5>
-                    </div>     
-                </div>
-
-            </div>
-
-            <div class="Results-text-overlay ">
-                <div class="Results-svg position-absolute top-0 end-0 m-3 rounded-circle px-1"
-                    (click)="putBookmark(movie)">
-                    <svg width="20" height="20" style="border:4px solid transparent" xmlns="http://www.w3.org/2000/svg"
-                        [ngClass]="{
-                            'svg-fill': movie.isBookmarked
-                        }">
-                        <path d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z" stroke="#FFF"
-                            stroke-width="1.5" fill="" />
-                    </svg>
-                </div>
-            </div>
-
-            <figcaption class="Results-caption figure-caption">
-                <ul class="Results-ul d-flex justify-content-start align-items-center gap-4 px-1 pt-2 my-0">
-                    <li>{{movie.year}}</li>
-                    <li>{{movie.category}}</li>
-                    <li>{{movie.rating}}</li>
-                </ul>
-                <h2 class="Results-h2 my-1 text-light">{{movie.title}}</h2>
-            </figcaption>
-
+        <div #play class="position-absolute Results__img--hover">
+          <div class="Results__block__play d-flex gap-3 rounded-pill">
+            <img src="assets/icon-play.svg" alt="" class="Results__img" />
+            <h5 class="my-auto Results__h5 fw-bold">Play</h5>
+          </div>
         </div>
-    </div>
+      </div>
 
+      <div class="Results-text-overlay">
+        <div
+          class="Results-contsvg position-absolute top-0 end-0 m-3 rounded-circle px-1"
+          (click)="clickPutBookmark(movie)"
+        >
+          <svg
+            width="20"
+            height="20"
+            style="border: 4px solid transparent"
+            xmlns="http://www.w3.org/2000/svg"
+            [ngClass]="movie.isBookmarked ? 'Results-svg' : ''"
+            #svgIconBlockMovie
+          >
+            <path
+              d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z"
+              stroke="#FFF"
+              stroke-width="1.5"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <figcaption class="Results-caption figure-caption">
+        <ul
+          class="Results-ul d-flex justify-content-start align-items-center gap-4 px-1 pt-2 my-0"
+        >
+          <li>{{ movie.year }}</li>
+          <li>{{ movie.category }}</li>
+          <li>{{ movie.rating }}</li>
+        </ul>
+        <h2 class="Results-h2 my-1 text-light">{{ movie.title }}</h2>
+      </figcaption>
+    </div>
+  </div>
 </div>
