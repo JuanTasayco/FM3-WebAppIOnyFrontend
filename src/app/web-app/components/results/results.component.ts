@@ -1,19 +1,15 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ElementRef,
   Input,
-  NgZone,
   OnInit,
   Renderer2,
   ViewChild,
 } from '@angular/core';
 import { Movies } from '../../interface/info.interface';
 import { WebAppService } from '../../services/web-app.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { combineLatest, elementAt, firstValueFrom, lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-results',
@@ -30,14 +26,12 @@ export class ResultsComponent implements OnInit {
   ngOnInit(): void {}
 
   async clickPutBookmark(movie: Movies) {
-    let resultado = await lastValueFrom(
-      this.webService.updateBookmarlByMovie(movie._id || '')
-    );
-
-    if (resultado.isBookmarked) {
-      console.log("hola")
-      this.cdr.detectChanges();
-    }
+    this.webService
+      .updateBookmarlByMovie(movie._id || '')
+      .subscribe((movieResult) => {
+        const posIndex = this.movies.findIndex((a) => a._id == movieResult._id);
+        this.movies[posIndex] = movieResult;
+      });
   }
 
   aparecerImg(element: HTMLElement) {
