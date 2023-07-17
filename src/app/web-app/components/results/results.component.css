@@ -37,6 +37,8 @@
 
 .Results-caption {
   background: var(--blueHard);
+  flex-wrap: wrap;
+  border: 2px solid red;
 }
 
 .Results-contsvg {
@@ -53,11 +55,12 @@
 }
 
 .Results-svg {
-  fill: red;
+  fill: gold;
 }
 
 .Results-ul {
   font-size: var(--textBodyM);
+  flex-wrap: wrap;
 }
 
 .Results-ul li:first-child {
@@ -79,6 +82,7 @@
     margin: auto;
   }
 }
+
 /* 
 @media only screen and (max-width:1200px) {
 
