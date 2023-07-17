@@ -29,6 +29,7 @@ export class ResultsComponent implements OnInit {
     this.webService
       .updateBookmarlByMovie(movie._id || '')
       .subscribe((movieResult) => {
+        /* actualizar array para que angular pueda actualizar el modelo sin recargar la página */
         const posIndex = this.movies.findIndex((a) => a._id == movieResult._id);
         this.movies[posIndex] = movieResult;
       });
