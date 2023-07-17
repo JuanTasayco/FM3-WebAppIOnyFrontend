@@ -38,7 +38,6 @@
 .Results-caption {
   background: var(--blueHard);
   flex-wrap: wrap;
-  border: 2px solid red;
 }
 
 .Results-contsvg {
@@ -82,14 +81,3 @@
     margin: auto;
   }
 }
-
-/* 
-@media only screen and (max-width:1200px) {
-
-    .Results__img--hover {
-        height: 3rem;
-        right:28%;
-        bottom:30%;
-    }
-
-} */
